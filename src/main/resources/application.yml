@@ -1,0 +1,42 @@
+spring:
+  application:
+    name: "demo02"
+  datasource:
+    password: Aa123456
+    username: root
+    url: jdbc:mysql://10.10.18.42:3306/my_test_db?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+
+server:
+  port: 8080
+  servlet:
+    context-path: /mhy
+
+logging:
+  level:
+    com.mhy: debug
+  pattern:
+    dateformat: yyyy-MM-dd HH:mm:ss
+
+mybatis-plus:
+  type-aliases-package: com.mhy.demo02.domain
+  mapper-locations: classpath*:mapper/**/*Mapper.xml
+  global-config:
+    db-config:
+      id-type: auto
+      logic-delete-field: deleted
+  configuration:
+    default-enum-type-handler: com.baomidou.mybatisplus.core.handlers.MybatisEnumTypeHandler
+
+
+# swagger
+#springfox:
+#  documentation:
+#    swagger:
+#      v2:
+#        path: /api-docs
+
